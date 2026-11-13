@@ -24,11 +24,10 @@ export default function MisPrestamos({ libros, prestamos, usuario }) {
               const libro = libros.find((item) => item.id === prestamo.libroId);
               return (
                 <tr key={prestamo.id}>
-                  <td className="fw-semibold">{prestamo.codigo}</td>
-                  <td>{libro?.titulo || "Libro no disponible"}</td>
-                  <td>{prestamo.fechaSolicitud || "—"}</td>
-                  <td>{prestamo.fechaDevolucion || "Pendiente de aprobación"}</td>
-                  <td><BadgeEstado estado={prestamo.estado} /></td>
+                  <td className="fw-semibold text-nowrap">{prestamo.codigo}</td>
+                  <td>{libro?.titulo || <span className="text-muted fst-italic">Libro no disponible</span>}</td>
+                  <td className="text-nowrap">{prestamo.fechaSolicitud || "—"}</td>
+                  <td className="text-nowrap">{prestamo.fechaDevolucion || <span className="text-muted">Pendiente de aprobación</span>}</td>
                 </tr>
               );
             })}</tbody>
